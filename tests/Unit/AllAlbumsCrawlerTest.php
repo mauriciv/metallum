@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use App\Crawlers\AllAlbumsCrawler;
 use Tests\TestCase;
@@ -8,7 +8,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AllAlbumsCrawlerTest extends TestCase
 {
-    /** @test */
     public function it_returns_all_the_albums_for_a_band()
     {
         $albums = (new AllAlbumsCrawler())->crawl(138);

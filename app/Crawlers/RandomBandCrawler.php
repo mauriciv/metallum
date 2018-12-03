@@ -8,7 +8,7 @@ class RandomBandCrawler
 {
     protected $client;
 
-    function __construct()
+    public function __construct()
     {
         $this->client = new Client();
     }

@@ -19,8 +19,12 @@ class CreateAlbumsTable extends Migration
             $table->unsignedInteger('bandMetallumId');
             $table->string('name');
             $table->string('url');
+            $table->string('artworkUrl')->nullable();
+            $table->string('artworkLocalPath')->nullable();
             $table->string('type');
-            $table->timestamp('releaseDate')->nullable();
+            $table->string('format');
+            $table->string('label');
+            $table->string('releaseDate')->nullable();
             $table->timestamps();
         });
     }

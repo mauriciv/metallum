@@ -2,22 +2,23 @@
 
 namespace App\Crawlers;
 
+use App\Band;
 use Goutte\Client;
 
 class BandCrawler
 {
-
     public function crawl($url)
     {
         if (is_numeric($url)) {
             $url = "https://www.metal-archives.com/band/view/id/$url";
         }
         $crawler = (new Client())->request('GET', $url);
-        $band = new \App\Band();
+        $band = new Band();
         $band->name = $crawler->filter('h1.band_name a')->text();
-        $band->metallumId = explode('/', $crawler->filter('h1.band_name a')->attr('href'))[5];
-        echo $band->metallumId . "\n";
         $band->url = $crawler->filter('h1.band_name a')->attr('href');
+        if ($band->url !== null) {
+            $band->metallumId = explode('/', $band->url)[5];
+        }
 
         if ($crawler->filter('#band_sidebar .band_name_img a')->count() > 0) {
             $band->logoUrl = $crawler->filter('#band_sidebar .band_name_img a')->attr('href');
@@ -38,5 +39,4 @@ class BandCrawler
         $band->yearsActive = trim(preg_replace('/\s+/', ' ', $statsNode->filter('dl:nth-child(3) dd')->text()));
         return $band;
     }
-
 }

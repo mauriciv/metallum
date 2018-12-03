@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use App\Band;
 use App\Crawlers\AllAlbumsCrawler;
 use App\Album;
+use App\Crawlers\AlbumCrawler;
+use App\Song;
 
 class SaveAllAlbums extends Command
 {
@@ -41,22 +43,39 @@ class SaveAllAlbums extends Command
     public function handle()
     {
         $arg = $this->argument('bandNameOrId');
-        $albums = collect();
         $bandId = null;
         if ($arg === null) {
-            $bandId = Band::all()->random()->metallumId;
+            // Until most bands have all of their albums,
+            // only get the bands that don't have any albums
+            $bandId = Band::doesntHave('albums')->get()->random()->metallumId;
         } elseif (!is_numeric($arg)) {
             $bandId = Band::where('name', $arg)->firstOrFail()->metallumId;
+        } else {
+            $bandId = $arg;
         }
         $albums = (new AllAlbumsCrawler)->crawl($bandId);
         $albums->each(function ($album, $key) use ($bandId) {
-            $albumInDB = Album::where('metallumId', $album->metallumId)->first();
-            if ($albumInDB === null) {
-                $album->save();
-            } else {
-                $albumInDB = $album;
-                $albumInDB->save();
-            }
+            $savedAlbum = Album::updateOrCreate(['metallumId' => $album->metallumId], [
+                'bandMetallumId' => $album->bandMetallumId,
+                'name' => $album->name,
+                'url' => $album->url,
+                'artworkUrl' => $album->artworkUrl,
+                'artworkLocalPath' => $album->artworkLocalPath,
+                'type' => $album->type,
+                'format' => $album->format,
+                'label' => $album->label,
+                'releaseDate' => $album->releaseDate
+            ]);
+            $savedAlbum->saveArtworkLocally();
+            echo "Saved album: {$album->name} - Id: {$album->metallumId}\n";
+            $album->songs->each(function ($song, $key) {
+                Song::updateOrCreate(['metallumId' => $song->metallumId], [
+                    'albumMetallumId' => $song->albumMetallumId,
+                    'name' => $song->name,
+                    'lyrics' => $song->lyrics,
+                    'length' => $song->length,
+                ]);
+            });
         });
     }
 }
