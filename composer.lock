@@ -2784,27 +2784,38 @@
         },
         {
             "name": "weidner/goutte",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dweidner/laravel-goutte.git",
-                "reference": "6b10c95f27be8750daecea2717af279a59563295"
+                "reference": "30b3516332c615aab59e41d6548ac7dd10112a10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/6b10c95f27be8750daecea2717af279a59563295",
-                "reference": "6b10c95f27be8750daecea2717af279a59563295",
+                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/30b3516332c615aab59e41d6548ac7dd10112a10",
+                "reference": "30b3516332c615aab59e41d6548ac7dd10112a10",
                 "shasum": ""
             },
             "require": {
-                "fabpot/goutte": "^3.1",
+                "fabpot/goutte": "^3.2",
                 "illuminate/support": "5.*",
                 "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Weidner\\Goutte\\GoutteServiceProvider"
+                    ],
+                    "aliases": {
+                        "Goutte": "Weidner\\Goutte\\GoutteFacade"
+                    }
                 }
             },
             "autoload": {
@@ -2820,17 +2831,17 @@
                 {
                     "name": "Daniel Weidner",
                     "email": "hallo@danielweidner.de",
-                    "homepage": "http://danielweidner.de"
+                    "homepage": "https://danielweidner.de"
                 }
             ],
-            "description": "Laravel 5 package for Gouette, a simple PHP Web Scraper",
+            "description": "Laravel 5 package for Goutte, a simple PHP Web Scraper",
             "homepage": "https://github.com/dweidner/laravel-goutte",
             "keywords": [
                 "goutte",
                 "laravel",
                 "weidner"
             ],
-            "time": "2017-01-22T12:15:51+00:00"
+            "time": "2019-08-19T14:46:28+00:00"
         }
     ],
     "packages-dev": [
@@ -3323,7 +3334,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🅱 Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "description": "? Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "bootstrapping",
@@ -3388,7 +3399,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "? Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "compiled",
@@ -3453,7 +3464,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🔍 Nette Finder: find files and directories with an intuitive API.",
+            "description": "? Nette Finder: find files and directories with an intuitive API.",
             "homepage": "https://nette.org",
             "keywords": [
                 "filesystem",
@@ -3513,7 +3524,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
@@ -3576,7 +3587,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.2 features.",
+            "description": "? Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.2 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "code",
@@ -3640,7 +3651,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -3713,7 +3724,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "? Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
