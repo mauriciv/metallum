@@ -2913,16 +2913,16 @@
         },
         {
             "name": "weidner/goutte",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dweidner/laravel-goutte.git",
-                "reference": "6ff0371ab382eae8ef4b6da79fd96149b2a93018"
+                "reference": "d1e611f4951bc8d9a41a5a57ae155f5c4c51285c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/6ff0371ab382eae8ef4b6da79fd96149b2a93018",
-                "reference": "6ff0371ab382eae8ef4b6da79fd96149b2a93018",
+                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/d1e611f4951bc8d9a41a5a57ae155f5c4c51285c",
+                "reference": "d1e611f4951bc8d9a41a5a57ae155f5c4c51285c",
                 "shasum": ""
             },
             "require": {
@@ -2963,14 +2963,14 @@
                     "homepage": "https://danielweidner.de"
                 }
             ],
-            "description": "Laravel 5 package for Goutte, a simple PHP Web Scraper",
+            "description": "Laravel Facade for Goutte, a simple PHP Web Scraper",
             "homepage": "https://github.com/dweidner/laravel-goutte",
             "keywords": [
                 "goutte",
                 "laravel",
                 "weidner"
             ],
-            "time": "2019-09-12T13:01:05+00:00"
+            "time": "2019-09-26T11:55:51+00:00"
         }
     ],
     "packages-dev": [
